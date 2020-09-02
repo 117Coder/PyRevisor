@@ -84,7 +84,7 @@ def ask_away(bank,top_index):
         del bank[ask_q]
         top_index -= 1
         layout = [  [sg.Text("Q{}".format(q_num), font='Arial 60')],
-            [sg.Text('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(50,15), auto_size_text=True)],[ sg.InputText(size=(50,30),font="100")],
+            [sg.Text('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(20,15), auto_size_text=True)],[ sg.InputText(size=(50,30),font="100")],
             [sg.Button('Ok', size=(5,2))],[sg.Text("Question {}  of  {}".format(q_num, start_qs,font='50',size=(50,15), auto_size_text=True))] ]
         print(start_qs)
       
@@ -100,8 +100,8 @@ def ask_away(bank,top_index):
         window.close()
         if user_answer.upper() == ask_a.upper():
             layout = [  [sg.Text("Correct!", font='Arial 60', background_color='green')],
-            [sg.Text('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(50,5), auto_size_text=True, background_color='green')],
-            [ sg.Text("ANSWER: " + ask_a,font='50',size=(50,5),background_color='green', auto_size_text=True)],
+            [sg.Text('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(20,5), auto_size_text=True, background_color='green')],
+            [ sg.Text("ANSWER: " + ask_a,font='50',size=(20,5),background_color='green', auto_size_text=True)],
              ]
             window = sg.Window("QUESTION{}".format(q_num), layout, background_color='green', auto_close=True,auto_close_duration=2, size=(400,500))
             event, values = window.read()
@@ -115,7 +115,7 @@ def ask_away(bank,top_index):
         elif user_answer.upper() != ask_a.upper():
 
             layout = [  [sg.Text("INCORRECT", font='Arial 60', background_color='red')],
-            [sg.Text('The correct answer was: {}'.format(ask_a), font='50',size=(50,15), auto_size_text=True, background_color='red')],
+            [sg.Text('The correct answer was: {}'.format(ask_a), font='50',size=(20,15), auto_size_text=True, background_color='red')],
             [sg.Text('Was your answer close enough? Do you want to override?', font='Arial 12',size=(50,7), auto_size_text=True, background_color='red')],
             [sg.Button('Yes', size=(5,2)),sg.Button('No', size=(5,2))] ]
             window = sg.Window("Incorrect", layout, background_color='red', size=(400,500))
@@ -134,8 +134,8 @@ def ask_away(bank,top_index):
             #override_opt = input("{}yes or no: {}".format(bcolors.OKBLUE,bcolors.ENDC))
             if event.upper() == "YES":
                 layout = [  [sg.Text("Correct!", font='Arial 60', background_color='green')],
-                [sg.Text('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(50,5), auto_size_text=True, background_color='green')],
-                [ sg.Text("ANSWER: " + ask_a,font='50',size=(50,5),background_color='green', auto_size_text=True)],
+                [sg.Text('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(20,5), auto_size_text=True, background_color='green')],
+                [ sg.Text("ANSWER: " + ask_a,font='50',size=(20,5),background_color='green', auto_size_text=True)],
                  ]
                 window = sg.Window("QUESTION{}".format(q_num), layout, background_color='green', auto_close=True,auto_close_duration=2, size=(400,500))
                 event, values = window.read()
