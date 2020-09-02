@@ -83,9 +83,17 @@ def ask_away(bank,top_index):
         ask_a = bank[ask_q]
         del bank[ask_q]
         top_index -= 1
+        thepercent = 0
+        if q_num-1 == 0:
+            thepercent=0
+        else:
+            thepercent=int(((correct_qs/(q_num-1))*100))
         layout = [  [sg.Text("Q{}".format(q_num), font='Arial 60')],
-            [sg.Multiline('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(40,15), auto_size_text=True, disabled=True, background_color='#63778D', text_color='white', autoscroll=True, border_width=0)],[ sg.InputText(size=(50,30),font="100")],
-            [sg.Button('Ok', size=(5,2))],[sg.Text("Question {}  of  {}".format(q_num, start_qs,font='50',size=(50,15), auto_size_text=True))] ]
+            [sg.Multiline('QUESTION {}: {}'.format(q_num, ask_q), font='50',size=(40,15), auto_size_text=True, disabled=True, background_color='#63778D', text_color='white', autoscroll=True, border_width=0)],
+            [ sg.InputText(size=(50,30),font="100")],
+            [sg.Button('Ok', size=(5,2))],[sg.Text("Question {}  of  {}".format(q_num, start_qs),font='50',size=(50,1), auto_size_text=True)],
+            [sg.Text("{} correct questions out of {} answered".format(correct_qs, q_num-1),font='50',size=(50,1), auto_size_text=True)],
+            [sg.Text("{}% success so far".format(thepercent),font='50',size=(50,1), auto_size_text=True)]]
         print(start_qs)
       
         window = sg.Window("QUESTION{}".format(q_num), layout, size=(400,500))
@@ -94,8 +102,8 @@ def ask_away(bank,top_index):
         print("{}----------Q{}----------{}".format(bcolors.WARNING,q_num,bcolors.ENDC))
         print("{}QUESTION {}:{} {}".format(bcolors.WARNING,q_num,bcolors.ENDC, ask_q))
         #user_answer = input("")
-        user_answer = values[0]
-        
+        user_answer = values[1]
+        print(user_answer)
         print(event)
         window.close()
         if user_answer.upper() == ask_a.upper():
