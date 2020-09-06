@@ -29,10 +29,11 @@ You will need these libraries to run the script properly.
     - datetime
     - fpdf
     
-(Downloading with pip3.8, feel free to use whichever download method suits you best)
+(Downloading with pip3, feel free to use whichever download method suits you best)
 
-    pip3.8 install re
-    pip3.8 install fpdf
+    pip3 install re
+    pip3 install fpdf
+    pip3 install datetime
     
 ## How to structure your directories
 
