@@ -123,7 +123,8 @@ def ask_away(bank,top_index):
         elif user_answer.upper() != ask_a.upper():
 
             layout = [  [sg.Text("INCORRECT", font='Arial 60', background_color='red')],
-            [sg.Multiline('The correct answer was: {}'.format(ask_a), font='50',size=(40,15), auto_size_text=True, background_color='red', disabled=True, text_color='white', autoscroll=True, border_width=0)],
+            [sg.Multiline('You said: {}'.format(user_answer), font='50',size=(40,1), auto_size_text=True, background_color='red', disabled=True, text_color='white', autoscroll=True, border_width=0)],
+            [sg.Multiline('The correct answer was: {}'.format(ask_a), font='50',size=(40,8), auto_size_text=True, background_color='black', disabled=True, text_color='green', autoscroll=True, border_width=0)],
             [sg.Text('Was your answer close enough? Do you want to override?', font='Arial 12',size=(50,7), auto_size_text=True, background_color='red')],
             [sg.Button('Yes', size=(5,2)),sg.Button('No', size=(5,2))] ]
             window = sg.Window("Incorrect", layout, background_color='red', size=(400,500))

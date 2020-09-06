@@ -1,7 +1,7 @@
   
 #!/bin/sh
 
-
+# main.command
 
 #  Created by Pete Hewage
 #  Copyright (c) 2020 Pete Hewage, All Rights Reserved.
@@ -29,4 +29,3 @@ echo finished!
 
 echo starting script...
 python3 RevisionScript.py
-
